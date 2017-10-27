@@ -12,7 +12,7 @@ function loadHelloWorld(){
 
     function ajaxLoad(event) {
         if (this.status === 200) {
-            
+
             box1.innerHTML = this.responseText;
             alert(this.responseText);
         } 
@@ -41,7 +41,7 @@ function loadLorumIpsum(){
 
     function ajaxLoad(event) {
         if (this.status === 200) {
-            
+
             box2.innerHTML = this.responseText;
         } 
 
@@ -70,7 +70,7 @@ function loadImage(){
 
     function ajaxLoad(event) {
         if (this.status === 200) {
-            
+
             image.src = "image.png";
             image.style.width = "150px";
             btn.style.display = "none";
@@ -95,13 +95,28 @@ function loadPhp(){
     xhr.addEventListener("error", ajaxError);
     xhr.open("GET", "delay.php");
     xhr.timeout = 1000;
-    xhr.ontimeout = function () { alert("Pagina niet op tijd geladen"); }
+    xhr.ontimeout = function () {
+     alert("Pagina niet op tijd geladen");
+      }
     xhr.send();
+
+
+    //  Op een andere manier 
+
+    /* if (xhr) {
+    xhr.open("GET", MY_SERVLET, true);
+    xhr.onreadystatechange = showResults;               
+    xhr.send(null);
+    setTimeout(function() {
+      xhr.abort();
+      alert("Pagina niet op tijd geladen");
+      },40000);
+    */
 
 
     function ajaxLoad(event) {
         if (this.status === 200) {
-            
+
             box4.innerHTML = this.responseText;
         } 
 
@@ -109,6 +124,8 @@ function loadPhp(){
             console.log("unsuccessful request");
         }
     }
+
+
 
     function ajaxError(event) {
         console.log('error');
